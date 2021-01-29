@@ -10,21 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_110925) do
+ActiveRecord::Schema.define(version: 2021_01_29_120603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "projects", force: :cascade do |t|
-    t.string "name"
+  create_table "houses", force: :cascade do |t|
+    t.string "location"
     t.text "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.datetime "start"
-    t.datetime "end"
+    t.integer "bedrooms"
+    t.integer "bathrooms"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,6 +28,20 @@ ActiveRecord::Schema.define(version: 2021_01_27_110925) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
   end
 
+  create_table "viewings", force: :cascade do |t|
+    t.date "date"
+    t.time "time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "house_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["house_id"], name: "index_viewings_on_house_id"
+    t.index ["user_id"], name: "index_viewings_on_user_id"
+  end
+
+  add_foreign_key "viewings", "houses"
+  add_foreign_key "viewings", "users"
 end
