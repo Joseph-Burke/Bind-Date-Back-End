@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :viewings
   resources :users
   resources :projects
   resources :sessions
