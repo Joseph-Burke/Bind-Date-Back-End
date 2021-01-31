@@ -45,7 +45,7 @@ class HousesController < ApplicationController
   if house.picture.attached?
     redirect_to rails_blob_url(house.picture)
   else
-    head :not_found
+    redirect_to '/placeholder_house.jpg'
   end
 end
 
