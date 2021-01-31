@@ -10,7 +10,7 @@ class HousesController < ApplicationController
 
   # GET /houses/1
   def show
-    render json: @house
+    render json: @house.as_json.merge({image_url: picture_house_path(@house).to_s})
   end
 
   # POST /houses
