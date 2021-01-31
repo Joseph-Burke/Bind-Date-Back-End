@@ -38,6 +38,17 @@ class HousesController < ApplicationController
     @house.destroy
   end
 
+  # GET /houses/:id/picture(.:format)
+  def picture
+  house = House.find_by(id: params[:id])
+
+  if house.picture.attached?
+    redirect_to rails_blob_url(house.picture)
+  else
+    head :not_found
+  end
+end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_house
