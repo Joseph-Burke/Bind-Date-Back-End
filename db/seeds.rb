@@ -16,8 +16,8 @@ users = User.create([
 ])
 
 viewings = Viewing.create([
-  { date: '01/02/2020', time: '12:00', house_id: 1, user_id: 1 },
-  { date: '07/02/2020', time: '15:00', house_id: 3, user_id: 2 }
+  { when: '01/02/2021 11:00:00', house_id: 1, user_id: 1 },
+  { when: '02/02/2021 10:59:00', house_id: 1, user_id: 2 }
 ])
 
 houses = House.create([

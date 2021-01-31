@@ -1,8 +1,7 @@
 class CreateViewings < ActiveRecord::Migration[6.0]
   def change
     create_table :viewings do |t|
-      t.date :date
-      t.time :time
+      t.when :datetime, null: false
 
       t.timestamps
     end
