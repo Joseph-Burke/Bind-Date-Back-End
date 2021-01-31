@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 users = User.create([
   { name: 'Joseph Burke', email: 'joseph_burke@outlook.com' },
   { name: 'Deborah Burke', email: 'deborah_burke@outlook.co.uk' },
@@ -20,8 +12,32 @@ viewings = Viewing.create([
   { when: '02/02/2021 10:59:00', house_id: 1, user_id: 2 }
 ])
 
-houses = House.create([
-  { location: '27 Gloucester Crescent', description: 'A cosy little getaway, perfect for a young family', bedrooms: 2, bathrooms: 1 },
-  { location: 'Millstone Drive, Ashby de la Zouch, LE65', description: 'A stunning range of contemporary homes, with flexible living space set in a secluded development.', bedrooms: 3, bathrooms: 3 },
-  { location: 'Paddock Close, Quorn, Leicester, LE12', description: 'A substantial four bedroom detached property on a large corner plot.', bedrooms: 4, bathrooms: 1 },
-])
+houses = [
+  { attributes: {
+      location: 'New Street, Donisthorpe, Swadlincote, DE12',
+      description: 'A reasonably priced terraced house, perfect for first-time buyers', 
+      bedrooms: 2, 
+      bathrooms: 1 },
+    image: 'http://media.rightmove.co.uk/166k/165374/77465148/165374_df79772e-0dc6-41d2-b4b5-a589581c7915_EAF_61476_IMG_01_0000.jpg'
+  },
+  { attributes: {
+      location: 'Moor Lane, Coleorton, Leicestershire, LE67',
+      description: 'A cottage brimming with character features, beautiful private established gardens, a 3.75 acre paddock and stunning views over the open countryside. ', 
+      bedrooms: 4,
+      bathrooms: 2 },
+    image: 'http://media.rightmove.co.uk/166k/165374/88657942/165374_f8bd7269-43d8-42ff-937e-86764a584d14_EAF_61407_IMG_01_0000.jpg'
+  },
+  { attributes: {
+      location: 'Netherhall Drive, Quorn, Leicester, LE12',
+      description: 'A stunning six bedroom house built by David Wilson Homes, which offers flexible accommodation over three floors.', 
+      bedrooms: 6, 
+      bathrooms: 4 },
+    image: 'http://media.rightmove.co.uk/166k/165374/77466201/165374_12bf2ccf-80c1-4679-9d8f-11a6b48cb706_EAF_61323_IMG_01_0000.jpg'
+  }
+]
+
+houses.each do |obj|
+  house = House.create(obj[:attributes]);
+  house.picture.attach io: URI.open(obj[:image]), filename: obj[:image], content_type: "image/jpg"
+end
+
