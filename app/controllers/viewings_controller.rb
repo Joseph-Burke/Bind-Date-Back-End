@@ -46,6 +46,7 @@ class ViewingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def viewing_params
-      params.permit(:date, :time, :house_id, :user_id)
+      datetime = [params[:date], params[:time]].join(' ')
+      params.merge({when: datetime}).permit(:house_id, :user_id, :when)
     end
 end
