@@ -2,10 +2,6 @@
 
 The **Chez Toi API** is Rails-based Application Programmatic Interface that serves data on houses and house viewings. It was built as a back-end to the [Chez Toi App](https://github.com/Joseph-Burke/Chez-Toi-App), but is also available for use by any other front-end app that could make use of the data. 
 
-<!-- ![screenshot](./screenshots/screenshot-main.png)
-![screenshot](./screenshots/screenshot-recipe.png) -->
-
-<!-- The API is deployed at  -->
 The API's endpoints are as follows:
 
 1) The primary endpoint is at **'/'**. This endpoint fetches a JSON object with three keys, one for each of the API's resources: **"users"**, **"houses"** and **"viewings"**. This endpoint is particularly useful for reducing the need for a front-end app to make multiple API calls.
