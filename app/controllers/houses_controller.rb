@@ -13,31 +13,6 @@ class HousesController < ApplicationController
     render json: @house.as_json.merge({ image_url: picture_house_path(@house).to_s })
   end
 
-  # POST /houses
-  def create
-    @house = House.new(house_params)
-
-    if @house.save
-      render json: @house, status: :created, location: @house
-    else
-      render json: @house.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /houses/1
-  def update
-    if @house.update(house_params)
-      render json: @house
-    else
-      render json: @house.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /houses/1
-  def destroy
-    @house.destroy
-  end
-
   # GET /houses/:id/picture(.:format)
   def picture
     house = House.find_by(id: params[:id])
