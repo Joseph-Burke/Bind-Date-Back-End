@@ -24,15 +24,6 @@ class ViewingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /viewings/1
-  def update
-    if @viewing.update(viewing_params)
-      render json: @viewing
-    else
-      render json: @viewing.errors, status: :unprocessable_entity
-    end
-  end
-
   # DELETE /viewings/1
   def destroy
     @viewing.destroy
