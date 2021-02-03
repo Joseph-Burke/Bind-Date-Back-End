@@ -1,5 +1,5 @@
 class ViewingsController < ApplicationController
-  before_action :set_viewing, only: [:show, :update, :destroy]
+  before_action :set_viewing, only: %i[show update destroy]
 
   # GET /viewings
   def index
