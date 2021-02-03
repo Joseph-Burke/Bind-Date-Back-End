@@ -12,7 +12,14 @@ class ViewingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create viewing" do
     assert_difference('Viewing.count') do
-      post viewings_url, params: { viewing: { date: @viewing.date, house_id: @viewing.house_id, time: @viewing.time, user_id: @viewing.user_id } }, as: :json
+      post viewings_url, params: {
+        viewing: {
+          date: @viewing.date,
+          house_id: @viewing.house_id,
+          time: @viewing.time,
+          user_id: @viewing.user_id
+        }
+      }, as: :json
     end
 
     assert_response 201
@@ -24,7 +31,14 @@ class ViewingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update viewing" do
-    patch viewing_url(@viewing), params: { viewing: { date: @viewing.date, house_id: @viewing.house_id, time: @viewing.time, user_id: @viewing.user_id } }, as: :json
+    patch viewing_url(@viewing), params: {
+      viewing: {
+        date: @viewing.date,
+        house_id: @viewing.house_id,
+        time: @viewing.time,
+        user_id: @viewing.user_id
+      }
+    }, as: :json
     assert_response 200
   end
 

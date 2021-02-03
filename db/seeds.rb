@@ -7,11 +7,6 @@ users = User.create([
   { name: 'Katherine Burke', email: 'katie@gmail.com' }
 ])
 
-viewings = Viewing.create([
-  { when: '01/02/2021 11:00:00', house_id: 1, user_id: 1 },
-  { when: '02/02/2021 10:59:00', house_id: 1, user_id: 2 }
-])
-
 houses = [
   { attributes: {
       location: 'New Street, Donisthorpe, Swadlincote, DE12',

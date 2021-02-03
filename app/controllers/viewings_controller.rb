@@ -39,14 +39,15 @@ class ViewingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_viewing
-      @viewing = Viewing.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def viewing_params
-      datetime = [params[:date], params[:time]].join(' ')
-      params.merge({when: datetime}).permit(:house_id, :user_id, :when)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_viewing
+    @viewing = Viewing.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def viewing_params
+    datetime = [params[:date], params[:time]].join(' ')
+    params.merge({ when: datetime }).permit(:house_id, :user_id, :when)
+  end
 end

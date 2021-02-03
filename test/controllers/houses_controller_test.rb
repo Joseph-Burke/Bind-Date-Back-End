@@ -12,7 +12,14 @@ class HousesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create house" do
     assert_difference('House.count') do
-      post houses_url, params: { house: { bathrooms: @house.bathrooms, bedrooms: @house.bedrooms, description: @house.description, location: @house.location } }, as: :json
+      post houses_url, params: {
+        house: {
+          bathrooms: @house.bathrooms,
+          bedrooms: @house.bedrooms,
+          description: @house.description,
+          location: @house.location
+        }
+      }, as: :json
     end
 
     assert_response 201
@@ -24,7 +31,14 @@ class HousesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update house" do
-    patch house_url(@house), params: { house: { bathrooms: @house.bathrooms, bedrooms: @house.bedrooms, description: @house.description, location: @house.location } }, as: :json
+    patch house_url(@house), params: {
+      house: {
+        bathrooms: @house.bathrooms,
+        bedrooms: @house.bedrooms,
+        description: @house.description,
+        location: @house.location
+      }
+    }, as: :json
     assert_response 200
   end
 
